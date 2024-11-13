@@ -16,12 +16,6 @@ public class Player {
     pieces = 0;
   }
 
-  public Player(String inputName)
-  {
-    name = inputName;
-    System.out.println("Hello and welcome to the game, " + name);
-    pieces = 0;
-  }
     
   public String getName()
   {
