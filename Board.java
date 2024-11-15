@@ -5,7 +5,7 @@ public class Board {
 
     //Set up game with pieces
     public static void setUp() {
-        pieces = (int) (Math.random() * (51));
+        pieces = (int) (Math.random() * (50 - 10 + 1)) + 10;
         System.out.println("Number of pieces: " + pieces);
     }
 
