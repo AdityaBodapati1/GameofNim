@@ -1,35 +1,23 @@
 import java.util.Scanner;
 
 public class Player {
-   private String name;
-   private int pieces;
-   
-   public void setPlayerName()
-  {
-    Scanner sc = new Scanner(System.in);
-    
-    System.out.println("Enter Player Name:");
-    String newName = sc.nextLine();
-   
-    name = newName;
-    System.out.println("Hello and welcome to the game, " + getName());
-    pieces = 0;
-  }
+    private String name;
+    private int score;
 
-    
-  public String getName()
-  {
-    return name;
-  }
-  
-  public void setName(String inputName)
-  {
-    name = inputName;
-  }
+    public Player() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter player name: ");
+        name = sc.nextLine();
+        System.out.println("Welcome to the game of Nim, " + name);
+        score = 0;
+    }
 
-  public void addToPoints(int value)
-  {
-    pieces += value;
-  }
-   
+    public Player(String name) {
+        this.name = name;
+        score = 0;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
