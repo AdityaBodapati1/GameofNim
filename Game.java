@@ -88,9 +88,9 @@ public class Game {
 
             // Determine who won the round
             if (turnOfPlayer % 2 == 0) {
-                System.out.println(player1.getName() + " won the round!");
-            } else {
                 System.out.println(player2.getName() + " won the round!");
+            } else {
+                System.out.println(player1.getName() + " won the round!");
             }
 
             // Ask if user wants to play again
@@ -133,20 +133,27 @@ public class Game {
 
     //Logic for computer to always win
     public int computerWins() {
-        int numPieces = Board.getPieces();
-        int maxGuess = Board.getMaxGuess();
-
-        int move;
-        if (numPieces % 2 == 0) {
-            move = 1;
-        } 
-        else {
-            move = Math.min(numPieces - 1, maxGuess);
+        //2^n - 1
+        int numRemove = 1;
+        while (numRemove - 1 < Board.getPieces()) {
+            numRemove = numRemove * 2;
         }
-
-        System.out.println("The computer removes " + move + " pieces.");
-        return move;
+        numRemove = (numRemove / 2) - 1;
+        //Determines how many pieces to remove from board
+        int compRemove = Board.getPieces() - numRemove;
+        //Check if input is valid
+        if (compRemove <= 0 || compRemove > Board.getMaxGuess()) {
+            compRemove = Math.max(1, Math.min(Board.getMaxGuess(), Board.getPieces() / 2));
+        }
+        //Output
+        System.out.println("The computer removes " + compRemove + " pieces");
+        return compRemove;
     }
+
+    
+    
+    
+    
 
     public int helpMove(){
         int numPieces = Board.getPieces();
